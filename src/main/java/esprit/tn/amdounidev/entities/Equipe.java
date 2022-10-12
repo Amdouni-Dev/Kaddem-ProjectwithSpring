@@ -3,6 +3,7 @@ package esprit.tn.amdounidev.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,6 +22,10 @@ public class Equipe {
     @Enumerated(EnumType.ORDINAL)
     Niveau niveau;
 
+    @OneToOne
+    private DetailEquipe detailEquipe;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
 
 
 }

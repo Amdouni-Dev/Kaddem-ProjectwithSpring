@@ -29,7 +29,8 @@ public class Contrat {
     private Float montantC;
     @Enumerated(EnumType.ORDINAL)
     Specailite specailite;
-
+    @ManyToOne
+    private Etudiant etudiant;
 
 
 }

@@ -6,6 +6,7 @@ import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -26,5 +27,11 @@ public class Etudiant implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     Domaine domaine;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "etudiant")
+    private Set<Contrat> contrats;
+    @ManyToOne
+    private Departement departement;
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy ="etudiants" )
+    private Set<Equipe> equipes;
 
 }

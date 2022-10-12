@@ -3,6 +3,7 @@ package esprit.tn.amdounidev.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,4 +19,7 @@ public class Departement {
     private Long idDepartement;
     @Column(name="nomDepartement")
     private String nomDepartement;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "departement")
+    private Set<Etudiant> etudiants;
 }
